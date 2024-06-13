@@ -14,6 +14,7 @@ public class WeatherDAO {
 	// getWeathers
 	// 파일에 날씨정보들을 ㅇ읽어와서 파싱 한 후에 DTO에 담아서 리턴
 
+	// list
 	public List<WeatherDTO> getWeathers() throws Exception {
 		File file = new File("C:\\study\\weather.txt");
 
@@ -42,6 +43,23 @@ public class WeatherDAO {
 		fr.close();
 
 		return list;
+	}
+
+	// detail
+	public WeatherDTO getDetail(WeatherDTO weatherDTO) throws Exception {
+		List<WeatherDTO> ar = this.getWeathers();
+
+		WeatherDTO result = null;
+
+		for (WeatherDTO w : ar) {
+			if (w.getNum() == weatherDTO.getNum()) {
+				result = w;
+				break;
+			}
+		}
+
+		return result;
+
 	}
 
 }
