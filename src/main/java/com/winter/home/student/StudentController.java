@@ -33,14 +33,14 @@ public class StudentController {
 		String method = request.getMethod();
 
 		if (uri.equals("list")) {
-			List<Student> ar = studentService.getStudents();
+			List<StudentDTO> ar = studentService.getStudents();
 			request.setAttribute("list", ar);
 			action.setPath("/WEB-INF/views/student/list.jsp");
 		} else if (uri.equals("add")) {
 
 			if (method.toUpperCase().equals("POST")) {
 				System.out.println("학생 등록 데이터를 꺼내야 함");
-				Student student = new Student();
+				StudentDTO student = new StudentDTO();
 				String name = request.getParameter("name");
 				System.out.println(name);
 				student.setName(name);
@@ -64,7 +64,7 @@ public class StudentController {
 		} else if (uri.equals("delete")) {
 
 		} else if (uri.equals("detail")) {
-			Student student = this.studentService.makeStudent();
+			StudentDTO student = this.studentService.makeStudent();
 			request.setAttribute("s", student);
 			action.setPath("/WEB-INF/views/student/detail.jsp");
 		} else {

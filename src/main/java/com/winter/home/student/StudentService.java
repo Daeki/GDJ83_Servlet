@@ -6,11 +6,11 @@ import java.util.Random;
 
 public class StudentService {
 
-	public List<Student> getStudents() {
-		ArrayList<Student> ar = new ArrayList<Student>();
+	public List<StudentDTO> getStudents() {
+		ArrayList<StudentDTO> ar = new ArrayList<StudentDTO>();
 		Random random = new Random();
 		for (int i = 0; i < 5; i++) {
-			Student student = new Student();
+			StudentDTO student = new StudentDTO();
 
 			student.setNum(i + 1);
 			student.setName("name" + i);
@@ -23,8 +23,8 @@ public class StudentService {
 
 	}
 
-	public Student makeStudent() {
-		Student student = new Student();
+	public StudentDTO makeStudent() {
+		StudentDTO student = new StudentDTO();
 		// DB에 꺼내올 데이터
 		student.setNum(1);
 		student.setName("winter");
