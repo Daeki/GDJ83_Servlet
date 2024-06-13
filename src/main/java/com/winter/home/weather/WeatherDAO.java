@@ -62,4 +62,22 @@ public class WeatherDAO {
 
 	}
 
+	// add
+	public void add(WeatherDTO weatherDTO) throws Exception {
+		List<WeatherDTO> ar = this.getWeathers();
+
+		// 도시명-기온-상태-습도
+		StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append(ar.size() + 1);
+		stringBuffer.append("-");
+		stringBuffer.append(weatherDTO.getCity());
+		stringBuffer.append("-");
+		stringBuffer.append(weatherDTO.getGion());
+		stringBuffer.append("-");
+		stringBuffer.append(weatherDTO.getStatus());
+		stringBuffer.append("-");
+		stringBuffer.append(weatherDTO.getHuminity());
+
+	}
+
 }
