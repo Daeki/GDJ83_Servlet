@@ -79,6 +79,19 @@ public class WeatherController {
 				request.setAttribute("message", "정보가 없습니다");
 				action.setPath("/WEB-INF/views/commons/message.jsp");
 			}
+		} else if (uri.equals("update")) {
+
+			if (method.toUpperCase().equals("POST")) {
+
+			} else {
+
+				WeatherDTO weatherDTO = new WeatherDTO();
+				weatherDTO.setNum(Long.parseLong(request.getParameter("num")));
+				weatherDTO = ws.getDetail(weatherDTO);
+				request.setAttribute("dto", weatherDTO);
+				action.setPath("/WEB-INF/views/weather/update.jsp");
+			}
+
 		} else {
 
 		}

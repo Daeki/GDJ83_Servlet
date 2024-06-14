@@ -30,8 +30,11 @@
 			<input type="text" name="status">
 		</div>
 		
+	
+		
 		<input type="submit" value="등록">
 		<button type="submit">등록</button>
+		
 	
 	</form>
 	
