@@ -55,6 +55,10 @@ public class WeatherController {
 
 				ws.add(weatherDTO);
 
+				// action.setPath("/weather/list");
+				// action.setPath("list");
+				action.setPath("./list");
+				action.setFlag(false);
 			} else {
 				action.setPath("/WEB-INF/views/weather/add.jsp");
 			}

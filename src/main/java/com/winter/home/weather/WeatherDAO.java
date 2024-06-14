@@ -3,6 +3,7 @@ package com.winter.home.weather;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,6 +78,15 @@ public class WeatherDAO {
 		stringBuffer.append(weatherDTO.getStatus());
 		stringBuffer.append("-");
 		stringBuffer.append(weatherDTO.getHuminity());
+
+		File file = new File("C:\\study\\weather.txt");
+
+		FileWriter fileWriter = new FileWriter(file, true);
+
+		fileWriter.write(stringBuffer.toString() + "\r\n");
+		fileWriter.flush();
+
+		fileWriter.close();
 
 	}
 
