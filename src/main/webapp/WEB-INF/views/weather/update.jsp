@@ -19,17 +19,48 @@
 			
 			<div>
 				<label>기온</label>
-				<input type="text" name="gion">
+				<input type="text" name="gion" value="${dto.gion}">
 			</div>
 			
 			<div>
 				<label>습도</label>
-				<input type="text" name="huminity">
+				<input type="text" name="huminity" value="${dto.huminity}">
 			</div>
 			
 			<div>
 				<label>날씨</label>
-				<input type="text" name="status">
+				<input type="text" name="status" value="${dto.status}">
+			</div>
+			
+		
+			
+			<input type="submit" value="등록">
+			<button type="submit">등록</button>
+		
+	
+		</form>
+		
+				<form action="./add" method="post">
+			<input type="hidden" name="num" value="${dto.num}">
+		
+			<div>
+				<label>도시명</label>
+				<input type="text" name="city" value="추가">
+			</div>
+			
+			<div>
+				<label>기온</label>
+				<input type="text" name="gion" value="${dto.gion}">
+			</div>
+			
+			<div>
+				<label>습도</label>
+				<input type="text" name="huminity" value="${dto.huminity}">
+			</div>
+			
+			<div>
+				<label>날씨</label>
+				<input type="text" name="status" value="${dto.status}">
 			</div>
 			
 		

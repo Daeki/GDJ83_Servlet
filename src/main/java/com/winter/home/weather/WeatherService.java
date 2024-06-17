@@ -48,4 +48,14 @@ public class WeatherService {
 
 	// delete
 
+	// update
+	public void update(WeatherDTO weatherDTO) {
+		try {
+			weatherDAO.update(weatherDTO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }

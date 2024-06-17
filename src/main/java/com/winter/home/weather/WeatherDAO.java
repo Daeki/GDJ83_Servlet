@@ -30,6 +30,9 @@ public class WeatherDAO {
 			if (s == null) {
 				break;
 			}
+			if (s.isEmpty()) {
+				continue;
+			}
 			WeatherDTO weatherDTO = new WeatherDTO();
 			s = s.replace(",", "-");
 			String[] ar = s.split("-");
@@ -148,6 +151,43 @@ public class WeatherDAO {
 		}
 		fw.write(stringBuffer.toString() + "\r\n");
 		fw.flush();
+
+	}
+
+	// update
+	public void update(WeatherDTO weatherDTO) throws Exception {
+		List<WeatherDTO> ar = this.getWeathers();
+		// add(Object); 끝에 추가
+		// add(index, Object); 삽입
+		// set(index. object); 수정
+		for (int i = 0; i < ar.size(); i++) {
+			if (weatherDTO.getNum() == ar.get(i).getNum()) {
+				ar.get(i).setCity(weatherDTO.getCity());
+				ar.set(i, weatherDTO);
+				break;
+			}
+		}
+
+		File file = new File("c:\\study\\weather.txt");
+
+		FileWriter fw = new FileWriter(file, false);
+		StringBuffer stringBuffer = new StringBuffer();
+		for (WeatherDTO dto : ar) {
+			stringBuffer.append(dto.getNum());
+			stringBuffer.append("-");
+			stringBuffer.append(dto.getCity());
+			stringBuffer.append("-");
+			stringBuffer.append(dto.getGion());
+			stringBuffer.append("-");
+			stringBuffer.append(dto.getStatus());
+			stringBuffer.append("-");
+			stringBuffer.append(dto.getHuminity());
+			stringBuffer.append("\r\n");
+		}
+		fw.write(stringBuffer.toString() + "\r\n");
+		fw.flush();
+
+		fw.close();
 
 	}
 
